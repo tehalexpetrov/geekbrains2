@@ -1,9 +1,6 @@
 package lesson1;
 
-public enum Course {
-
-            COURSE(10 , 5, 1), COURSE2(10, 2,1);
-
+public class Course {
     protected int run;
     protected int swim;
     protected int jump;
@@ -14,11 +11,24 @@ public enum Course {
         this.jump = jump;
     }
 
-    public static void action(int run){
-//        if(){
-//
-//        }
+    public Course(Course course1, Course course2) {
 
+    }
+
+    public int actionRun(){
+        return run;
+    }
+
+    public int actionSwim(){
+        return swim;
+    }
+
+    public int actionJump(){
+        return jump;
+    }
+
+    public void printAction(){
+        System.out.println(this);
     }
 
 

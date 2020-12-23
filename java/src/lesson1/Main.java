@@ -1,23 +1,26 @@
 package lesson1;
 
 public class Main {
+
+
     public static void main(String[] args) {
-        Team team1 = Team.BIRDS;
-        Team team2 = Team.LION;
+        Team team1 = new Team("Birds","Андрей","Максим", "Вячеслав", "Константин");
+        Team team2 = new Team("Lion","Александр", "Олег", "Анатолий", "Павел");
 
-        Course course1 = Course.COURSE;
-        Course course2 = Course.COURSE2;
+        Course course1 = new Course(10 , 5, 1);
+        Course course2 = new Course(8, 4,1);
 
-        System.out.println("Команда " + team1.teamName() + " " + course1);
-        System.out.println("Команда " + team2.teamName() + " " + course2);
 
-        for (Team team: Team.values()) {
-           //System.out.println(team1.teamName());
+        printInfo();
+
+
+       /* for (Team team: teamArray) {
+            System.out.println(team + " --> Пробежали " + course1.actionRun() + " км");
         }
+*/
+    }
 
-        for (Course course: Course.values()) {
-//            System.out.println(course);
-        }
+    public static void printInfo(){
 
     }
 }
