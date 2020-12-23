@@ -1,26 +1,34 @@
 package lesson1;
 
+import javax.swing.*;
+import java.util.Random;
+
 public class Main {
 
-
     public static void main(String[] args) {
-        Team team1 = new Team("Birds","Андрей","Максим", "Вячеслав", "Константин");
-        Team team2 = new Team("Lion","Александр", "Олег", "Анатолий", "Павел");
 
-        Course course1 = new Course(10 , 5, 1);
-        Course course2 = new Course(8, 4,1);
+        Random random = new Random();
+        Random rand = new Random();
 
+        int run = random.nextInt(10);
+        int run2 = rand.nextInt(10);
+        int jump = random.nextInt(3);
+        int jump2 = rand.nextInt(3);
 
-        printInfo();
+        Cat[] cats = {new Cat("Барсик", run, jump), new Cat("Снежок", run2, jump2)};
 
-
-       /* for (Team team: teamArray) {
-            System.out.println(team + " --> Пробежали " + course1.actionRun() + " км");
+        for (Cat cat: cats) {
+            cat.catPrintInfo();
         }
-*/
-    }
 
-    public static void printInfo(){
+        Human[] human = {new Human("Антон", 6, 1), new Human("Жора", 1, 1) };
+        Robot[] robot1 = {new Robot("Робокоп", 10, 4), new Robot("Бабелби", 4, 8) };
+
+       Random ran1 = new Random();
+       int treads = ran1.nextInt(4);
+       Treadmill tread = new Treadmill(treads);
+
+       Wall wall = new Wall(3);
 
     }
 }
