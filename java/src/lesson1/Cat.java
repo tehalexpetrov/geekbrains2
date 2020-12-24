@@ -33,11 +33,4 @@ public class Cat {
         return  name + " Пробежал " + run + " метров " + " Прыгнул на " + jump + " метров(a)";
     }
 
-    public int catAction(){
-        return getHeight();
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
 }
