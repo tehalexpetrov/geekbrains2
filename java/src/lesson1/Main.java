@@ -1,6 +1,5 @@
 package lesson1;
 
-import javax.swing.*;
 import java.util.Random;
 
 public class Main {
@@ -17,18 +16,21 @@ public class Main {
 
         Cat[] cats = {new Cat("Барсик", run, jump), new Cat("Снежок", run2, jump2)};
 
-        for (Cat cat: cats) {
+        for (Cat cat : cats) {
             cat.catPrintInfo();
+            System.out.println(cat.getName() + " --> " + cat.getRun());
+            if (cat.getRun() > cat.doActionCat()) {
+                System.out.println("Молодцы! Справились");
+            }
         }
 
-        Human[] human = {new Human("Антон", 6, 1), new Human("Жора", 1, 1) };
-        Robot[] robot1 = {new Robot("Робокоп", 10, 4), new Robot("Бабелби", 4, 8) };
 
-       Random ran1 = new Random();
-       int treads = ran1.nextInt(4);
-       Treadmill tread = new Treadmill(treads);
+        Human[] human = {new Human("Антон", 6, 1), new Human("Жора", 1, 1)};
+        Robot[] robot1 = {new Robot("Робокоп", 10, 4), new Robot("Бабелби", 4, 8)};
 
-       Wall wall = new Wall(3);
+
+        Wall wall = new Wall(3);
+        Treadmill tread = new Treadmill(3);
 
     }
 }

@@ -1,12 +1,11 @@
 package lesson1;
 
-import java.util.Random;
-
 public class Cat {
 
     protected String name;
     protected int run;
     protected int jump;
+    private boolean action;
 
     public Cat (String name, int run, int jump){
         this.name = name;
@@ -36,4 +35,7 @@ public class Cat {
     }
 
 
+    public void doActionCat(int n, Treadmill tread) {
+         tread.getMile();
+    }
 }
