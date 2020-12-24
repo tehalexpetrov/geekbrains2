@@ -1,7 +1,5 @@
 package lesson1;
 
-import java.util.Random;
-
 public class Wall {
     protected int height;
 
@@ -16,5 +14,9 @@ public class Wall {
     @Override
     public String toString() {
         return "Стена высотой " + height;
+    }
+
+    int wallInfo(){
+        return height;
     }
 }

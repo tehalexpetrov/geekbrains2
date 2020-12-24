@@ -17,10 +17,11 @@ public class Main {
         Cat[] cats = {new Cat("Барсик", run, jump), new Cat("Снежок", run2, jump2)};
 
         for (Cat cat : cats) {
-            cat.catPrintInfo();
-            System.out.println(cat.getName() + " --> " + cat.getRun());
-            if (cat.getRun() > cat.doActionCat()) {
-                System.out.println("Молодцы! Справились");
+//            cat.catPrintInfo();
+
+//            System.out.println(cat.getName()+ " --> " + cat.getRun() + " --> " + cat.getJump());
+            if (cat.getJump() > cat.catAction(3)){
+                System.out.println("test");
             }
         }
 

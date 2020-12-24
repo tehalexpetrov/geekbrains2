@@ -5,7 +5,6 @@ public class Cat {
     protected String name;
     protected int run;
     protected int jump;
-    private boolean action;
 
     public Cat (String name, int run, int jump){
         this.name = name;
@@ -34,8 +33,11 @@ public class Cat {
         return  name + " Пробежал " + run + " метров " + " Прыгнул на " + jump + " метров(a)";
     }
 
+    public int catAction(){
+        return getHeight();
+    }
 
-    public void doActionCat(int n, Treadmill tread) {
-         tread.getMile();
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
