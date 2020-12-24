@@ -26,8 +26,8 @@ public class Main {
         Robot[] robot1 = {new Robot("Робокоп", 10, 4), new Robot("Бабелби", 4, 8)};
 
 
-        Wall wall = new Wall(3);
-        Treadmill tread = new Treadmill(3);
+        Wall wall = new Wall(3); // Высота стены
+        Treadmill tread = new Treadmill(10); //Длина дистанции
 
     }
 }
