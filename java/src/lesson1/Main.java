@@ -6,31 +6,54 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        Random rand = new Random();
+        Random kote = new Random();
+        Random kote2 = new Random();
 
-        int run = random.nextInt(10);
-        int run2 = rand.nextInt(10);
-        int jump = random.nextInt(3);
-        int jump2 = rand.nextInt(3);
+        int run = kote.nextInt(10);
+        int run2 = kote2.nextInt(10);
+        int jump = kote.nextInt(3);
+        int jump2 = kote2.nextInt(3);
+
+        System.out.println("\nПолосу препядствий проходят Коты\n");
 
         Cat[] cats = {new Cat("Барсик", run, jump), new Cat("Снежок", run2, jump2)};
 
         for (Cat cat : cats) {
-            cat.catPrintInfo();
-            System.out.println(cat.getName() + " --> " + cat.getRun());
-            if (cat.getRun() > cat.doActionCat()) {
-                System.out.println("Молодцы! Справились");
-            }
+            /* Котики бегают */
+            System.out.print(cat.getName() + " --> " + cat.getRun() + " км --> ");
+            cat.doRunCat();
+
+            /* Котики Прыгают */
+            System.out.print(cat.getName() + " --> " + cat.getJump() + " м --> ");
+            cat.doJumpCat();
         }
 
+        System.out.println("\nПолосу препядствий проходят Люди\n");
 
-        Human[] human = {new Human("Антон", 6, 1), new Human("Жора", 1, 1)};
-        Robot[] robot1 = {new Robot("Робокоп", 10, 4), new Robot("Бабелби", 4, 8)};
+        Human[] humans = {new Human("Антон", 6, 1), new Human("Жора", 1, 1)};
+        for (Human human : humans) {
+            /* Люди бегут дистанцию */
+            System.out.print(human.getName() + " --> " + human.getRun() + " км --> ");
+            human.doRunHuman();
 
+            /* Люди Прыгают */
+            System.out.print(human.getName() + " --> " + human.getJump() + " м --> ");
+            human.doJumpHuman();
+        }
 
-        Wall wall = new Wall(3);
-        Treadmill tread = new Treadmill(3);
+        System.out.println("\nПолосу препядствий проходят Роботы\n");
+
+        Robot[] robots = {new Robot("Робокоп", 10, 4), new Robot("Бамблби", 4, 8)};
+
+        for (Robot robot : robots) {
+            /* Роботы бегут дистанцию */
+            System.out.print(robot.getName() + " --> " + robot.getRun() + " км --> ");
+            robot.doRunRobot();
+
+            /* Роботы Прыгают */
+            System.out.print(robot.getName() + " --> " + robot.getJump() + " м --> ");
+            robot.doJumpRobot();
+        }
 
     }
 }

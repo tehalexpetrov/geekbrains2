@@ -1,6 +1,6 @@
 package lesson1;
 
-public class Cat {
+public class Cat implements Limitations {
 
     protected String name;
     protected int run;
@@ -25,17 +25,28 @@ public class Cat {
         return jump;
     }
 
-    void catPrintInfo(){
-        System.out.println(this);
-    }
-
     @Override
     public String toString() {
         return  name + " Пробежал " + run + " метров " + " Прыгнул на " + jump + " метров(a)";
     }
 
+    void doRunCat(){
+        if (getRun() >= TREADMILL){
+            System.out.println("Молодец. Ты хорошо бегаешь.");
+        } else if(getRun() == 0){
+            System.out.println(" Выбывает ");
+        } else {
+            System.out.println("Ты ленивый! Поднажми");
+        }
+    }
 
-    public void doActionCat(int n, Treadmill tread) {
-         tread.getMile();
+    void doJumpCat(){
+        if (getJump() >= WALL){
+            System.out.println("Молодец. Ты хорошо прыгаешь.");
+        } else if(getJump() == 0){
+            System.out.println(" Выбывает ");
+        } else {
+            System.out.println("Ты ленивый! Тренируйся больше");
+        }
     }
 }
