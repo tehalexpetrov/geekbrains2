@@ -29,9 +29,9 @@ public class Main {
             int rT = ranTreid.nextInt(10);
             isRoad = ranTreid.nextBoolean();
             if (isRoad) {
-                bar[i] = new Treadmill("Road " + i, rT);
+                bar[i] = new Treadmill("Дорожка " + i, rT);
             } else {
-                bar[i] = new Wall("Wall " + i, rT);
+                bar[i] = new Wall("Стена " + i, rT);
             }
         }
 
