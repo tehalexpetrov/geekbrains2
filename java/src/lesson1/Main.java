@@ -5,55 +5,50 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
+        Random catRun = new Random();
+        Random catJump = new Random();
+        Random humRun = new Random();
+        Random humJump = new Random();
+        Random robRun = new Random();
+        Random robJump = new Random();
 
-        Random kote = new Random();
-        Random kote2 = new Random();
+        int catR = catRun.nextInt(10);
+        int catJ = catJump.nextInt(5);
+        int humR = humRun.nextInt(10);
+        int humJ = humJump.nextInt(5);
+        int robR = robRun.nextInt(10);
+        int robJ = robJump.nextInt(5);
 
-        int run = kote.nextInt(10);
-        int run2 = kote2.nextInt(10);
-        int jump = kote.nextInt(3);
-        int jump2 = kote2.nextInt(3);
+        Limitations[] part = {new Cat("Барсик", catR, catJ), new Human("Антон", humR, humJ), new Robot("Робокоп", robR, robJ)};
 
-        System.out.println("\nПолосу препядствий проходят Коты\n");
+        Barrier[] bar = new Barrier[6];
 
-        Cat[] cats = {new Cat("Барсик", run, jump), new Cat("Снежок", run2, jump2)};
-
-        for (Cat cat : cats) {
-            /* Котики бегают */
-            System.out.print(cat.getName() + " --> " + cat.getRun() + " км --> ");
-            cat.doRunCat();
-
-            /* Котики Прыгают */
-            System.out.print(cat.getName() + " --> " + cat.getJump() + " м --> ");
-            cat.doJumpCat();
+        boolean isRoad;
+        for (int i = 0; i < bar.length; i++) {
+            Random ranTreid = new Random();
+            int rT = ranTreid.nextInt(10);
+            isRoad = ranTreid.nextBoolean();
+            if (isRoad) {
+                bar[i] = new Treadmill("Road " + i, rT);
+            } else {
+                bar[i] = new Wall("Wall " + i, rT);
+            }
         }
 
-        System.out.println("\nПолосу препядствий проходят Люди\n");
+        for (int i = 0; i < part.length; i++) {
+            boolean result = true;
+            for (int j = 0; j < bar.length; j++) {
+                result = bar[j].isAction(part[i]);
+                if (!result) {
+                    break;
+                }
+            }
 
-        Human[] humans = {new Human("Антон", 6, 1), new Human("Жора", 1, 1)};
-        for (Human human : humans) {
-            /* Люди бегут дистанцию */
-            System.out.print(human.getName() + " --> " + human.getRun() + " км --> ");
-            human.doRunHuman();
-
-            /* Люди Прыгают */
-            System.out.print(human.getName() + " --> " + human.getJump() + " м --> ");
-            human.doJumpHuman();
+            if (result) {
+                System.out.println(" Успешно!");
+            } else {
+                System.out.println("Плохо!");
+            }
         }
-
-        System.out.println("\nПолосу препядствий проходят Роботы\n");
-
-        Robot[] robots = {new Robot("Робокоп", 10, 4), new Robot("Бамблби", 4, 8)};
-
-        for (Robot robot : robots) {
-            /* Роботы бегут дистанцию */
-            System.out.print(robot.getName() + " --> " + robot.getRun() + " км --> ");
-            robot.doRunRobot();
-
-            /* Роботы Прыгают */
-            System.out.print(robot.getName() + " --> " + robot.getJump() + " м --> ");
-            robot.doJumpRobot();
-        }
-
     }
 }
