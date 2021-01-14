@@ -1,32 +1,51 @@
 package lesson2;
 
+import java.util.Scanner;
+
 public class Main {
+    public static void main(String[] args) throws MyArraySizeException, MyArrayDataException {
+        Scanner scanner = new Scanner(System.in);
 
-    private static final int MassI = 4;
-    private static final int MassJ = 4;
-    private static final String point = String.valueOf('*');
+        System.out.println("Введите число строк: ");
+        int i = scanner.nextInt();
+        System.out.println("Введите число колонок: ");
+        int j = scanner.nextInt();
 
-
-    public static void main(String[] args) {
-        String[][] massArray = new String[MassI][MassJ];
-        try {
-
-
-
-        } catch (Exception e) {
-
+        String[][] str = new String[i][j];
+        for (int i_ = 0; i_ < i; i_++) {
+            for (int j_ = 0; j_ < j; j_++) {
+                System.out.println("Введите строку[" + i_ + "," + j_ + "]: ");
+                str[i_][j_] = scanner.next();
+            }
         }
+        getArraySumm(str);
     }
 
-    public void stringExection(String[][] massArray) throws MyArraySizeException {
-        if(massArray.length != MassI || massArray.length != MassJ ) throw new MyArraySizeException("Неверное количество строк"); {
-            for (int i = 0; i < massArray.length; i++) {
-                if (massArray[i].length != MassI || massArray.length != MassJ) throw new MyArraySizeException(String.format("Неверное количество столбцов в %d-й" + " строке", i));{
-                    for (int j = 0; j < massArray[i].length; j++) {
-                        System.out.print(massArray[i][j]);
-                    }
-                    System.out.println();
-                }
+    private static void getArraySumm(String[][] str) throws MyArraySizeException, MyArrayDataException {
+        if (str.length != 4) {
+            throw new MyArraySizeException();
+        }
+        for (int i = 0; i < str.length; i++) {
+            if (str[i].length != 4) {
+                throw new MyArraySizeException();
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i < str.length; i++) {
+            for (int j = 0; j < str[i].length; j++) {
+                inputDate(str[i][j], i, j);
+                sum += Integer.parseInt(str[i][j]);
+            }
+        }
+        System.out.println("Результат: ");
+        System.out.println(sum);
+    }
+
+    private static void inputDate(String str, int x, int y) throws MyArrayDataException {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) < '0' || str.charAt(i) > '9') {
+                throw new MyArrayDataException(x, y);
             }
         }
     }
