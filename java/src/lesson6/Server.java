@@ -15,14 +15,12 @@ public class Server {
             socket = serverSocket.accept();
             System.out.println("Клиент подключился");
             DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            String str;
             do{
-                String str = in.readUTF();
-                if (str.equals("//end")){
-                    break;
-                }
-                out.writeUTF("Сообщение: " + str);
-            } while (true);
+                str = in.readUTF();
+                System.out.print("Echo: ");
+                System.out.println(str);
+            } while (!"//end".equals(str));
 
         } catch(IOException e){
             e.printStackTrace();
